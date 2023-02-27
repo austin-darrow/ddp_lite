@@ -27,16 +27,6 @@
     </div>
     <hr>
     <div class="tutorial-item">
-        <%= image_tag "tutorial/input_scoring_method.png", :class => 'tutorial-img' %>
-        <div>Choose the scoring method.<br>On average, AutoDock Vina does considerably better, both in speed and accuracy. However, for any given target, either program may provide a better result, even though AutoDock Vina is more likely to do so. This is due to the fact that the scoring functions are different, and both are inexact.</div>
-    </div>
-    <hr>
-    <div class="tutorial-item">
-        <%= image_tag "tutorial/input_docking_type.png", :class => 'tutorial-img' %>
-        <div>Choose whether this will be rigid or flexible docking. Flexible docking <em>may</em> take considerably longer to run.</div>
-    </div>
-    <hr>
-    <div class="tutorial-item">
         <%= image_tag "tutorial/input_library.png", :class => 'tutorial-img' %>
         <div>Choose a ligand library. More information on each library can be found in our <%= link_to "FAQ", faq_path %>.</div>
     </div>
@@ -47,18 +37,40 @@
     </div>
     <hr>
     <div class="tutorial-item">
-        <%= image_tag "tutorial/input_sidechains.png", :class => 'tutorial-img' %>
-        <div>If Docking Type is set to Flexible, input valid flexible sidechains, separated by underscores (e.g. THR315_GLU217).</div>
-    </div>
-    <hr>
-    <div class="tutorial-item">
         <%= image_tag "tutorial/config_queue.png", :class => 'tutorial-img' %>
         <div>Choose the Lonestar6 compute queue to run your job on.</div>
     </div>
     <hr>
     <div class="tutorial-item">
         <%= image_tag "tutorial/config_runtime.png", :class => 'tutorial-img' %>
-        <div>Specify the maximum runtime. Try to choose a time that will allow enough time for the job to finish, with a little extra on top. If your job does not finish by this time, it will exit and no results will be returned. However, a higher maximum runtime may cause your job to wait longer in the queue.</div>
+        <div>Specify the maximum runtime. Try to choose a time that will allow enough time for the job to finish, with a little extra on top. If your job does not finish by this time, it will exit and no results will be returned. However, a higher maximum runtime may cause your job to wait longer in the queue. Suggested runtimes:
+        <table>
+            <tr>
+                <th>Ligand Library</th>
+                <th>Suggested Max Runtime</th>
+            </tr>
+            <tr>
+                <td>ZINC-in-trials</td>
+                <td class='center'>4 hours</td>
+            </tr>
+            <tr>
+                <td>ZINC-fragments</td>
+                <td class='center'>15 hours</td>
+            </tr>
+            <tr>
+                <td>Enamine-PC</td>
+                <td class='center'>8 hours</td>
+            </tr>
+            <tr>
+                <td>Enamine-AC</td>
+                <td class='center'>26 hours</td>
+            </tr>
+            <tr>
+                <td>Enamine-HTSC</td>
+                <td class='center'>26 hours</td>
+            </tr>
+        </table>
+        <p>Note that these suggested times give a ~2 hour buffer on top of our internal benchmark times for each library. Given different input parameters, these times may need to be significantly adjusted for your job.</div>
     </div>
     <hr>
     <div class="tutorial-item">
@@ -93,7 +105,7 @@
             <tr>
                 <td>Enamine-HTSC</td>
                 <td class='center'>32</td>
-                <td class='center'>?</td>
+                <td class='center'>10</td>
             </tr>
         </table>
         </div>
@@ -114,5 +126,8 @@
         <li>Navigate to the UTRC Portal -> Log in -> History -> Select the link for your job under the Output Location column.
         <li>Navigate to the Output Location on your TACC Storage System that you specified when submitting the job.
     </ol>
+
+    <h3>How do I view my results interactively?</h3>
+    <p>The user may also choose to visualize their resulting output file utilizing the <%= link_to "ChimeraX application", "https://github.com/tiffanyhuff/ChimeraXApp" %> on TACC's Lonestar6 supercomputer. To run the application, the user must submit a job using the <%= link_to "University of Texas Research Cyberinfrastructure (UTRC) system", "https://utrc.tacc.utexas.edu/" %>. A virtual DCV session will be initialized for the user, and a document titled 'ChimeraX_dcvserver.txt' will be created in the user's work folder with connection instructions. Once connected, the <%= link_to "University of California San Francisco (UCSF)", "https://www.ucsf.edu/" %> <%= link_to "ChimeraX", "https://www.cgl.ucsf.edu/chimerax/" %> software will begin running, and a Tapis jobs archive folder will be created on the desktop for the user's convenience. The user may then use the ChimeraX program to open the file containing the top scoring docked ligands.</p>
     <div class='spacing'></div>
 </div>
