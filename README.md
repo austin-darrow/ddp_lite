@@ -5,12 +5,12 @@ Installation Commands
 
 __Update Packages__
 ```
-apt update && apt upgrade -y
+sudo apt update && apt upgrade -y
 ```
 
 __Install Ruby__
 ```
-apt install gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev curl git
+sudo apt install gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev curl git nginx -y
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
@@ -33,6 +33,25 @@ cd
 git clone https://github.com/austin-darrow/ddp\_lite
 cd ddp\_lite
 bundle install
+```
+
+__Edit the Nginx config__
+```
+make nginx_edit_conf
+```
+Add the following:
+```
+server {
+        listen 80;
+        listen [::]:80;
+
+        # Change to drugdiscovery.tacc.utexas.edu
+        server_name 129.114.38.28;
+
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+}
 ```
 
 Starting the Web & App Servers
