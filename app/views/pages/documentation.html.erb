@@ -17,6 +17,11 @@
     </div>
     <hr>
     <div class="tutorial-item">
+        <%= image_tag "tutorial/input_library.png", :class => 'tutorial-img' %>
+        <div>Choose a ligand library. More information on each library can be found in our <%= link_to "FAQ", faq_path %>.</div>
+    </div>
+    <hr>
+    <div class="tutorial-item">
         <%= image_tag "tutorial/input_center.png", :class => 'tutorial-img' %>
         <div>Specify the X-Y-Z coordinate grid-center for the search area. This must be located inside of the uploaded protein receptor.</div>
     </div>
@@ -24,11 +29,6 @@
     <div class="tutorial-item">
         <%= image_tag "tutorial/input_box.png", :class => 'tutorial-img' %>
         <div>Specify the search area box's X-Y-Z bounds.<br>The larger the box size, the longer the job will take to run.</div>
-    </div>
-    <hr>
-    <div class="tutorial-item">
-        <%= image_tag "tutorial/input_library.png", :class => 'tutorial-img' %>
-        <div>Choose a ligand library. More information on each library can be found in our <%= link_to "FAQ", faq_path %>.</div>
     </div>
     <hr>
     <div class="tutorial-item">

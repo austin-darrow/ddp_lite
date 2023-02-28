@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installation Commands
+--------------
 
-Things you may want to cover:
+__Update Packages__
+```
+apt update && apt upgrade -y
+```
 
-* Ruby version
+__Install Ruby__
+```
+apt install gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev curl git
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+rbenv install 3.1.2
+rbenv global 3.1.2
+```
 
-* System dependencies
+__Install Rails & Other Dependencies__
+```
+gem install rails
+apt install yarn
+```
 
-* Configuration
+__Install App__
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
