@@ -37,7 +37,7 @@ bundle install
 
 __Edit the Nginx config__
 ```
-make nginx_edit_conf
+make nginx_edit
 ```
 Add the following:
 ```
@@ -84,7 +84,7 @@ sudo systemctl stop nginx
 Editing Web Server Config
 -------------
 ```
-make nginx_edit_conf
+make nginx_edit
 ```
 
 Editing App Pages
