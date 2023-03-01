@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'home', to: "pages#home"
   get 'faq', to: 'pages#faq'
   get 'documentation', to: 'pages#documentation'
+  get 'image', to: 'pages#image'
   root 'pages#home'
 end
