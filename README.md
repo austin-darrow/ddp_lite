@@ -56,7 +56,8 @@ server {
                 proxy_redirect off;
                 proxy_pass http://localhost:3000;
         }
-}```
+}
+```
 
 Starting the Web & App Servers
 ------------------
