@@ -30,8 +30,8 @@ apt install yarn
 __Install App__
 ```
 cd
-git clone https://github.com/austin-darrow/ddp\_lite
-cd ddp\_lite
+git clone https://github.com/austin-darrow/ddp_lite
+cd ddp_lite
 bundle install
 ```
 
@@ -46,13 +46,17 @@ server {
         listen [::]:80;
 
         # Change to drugdiscovery.tacc.utexas.edu
-        server_name 129.114.38.28;
+        server_name 129.114.4.222;
+
+
 
         location / {
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $http_host;
+                proxy_redirect off;
                 proxy_pass http://localhost:3000;
         }
-}
-```
+}```
 
 Starting the Web & App Servers
 ------------------
